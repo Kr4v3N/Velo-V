@@ -1,0 +1,48 @@
+// ---------------------------- //
+// ------    STATION  --------- //
+// ---------------------------- //
+
+// Création de l'objet station qui récupère et affiche les données d'une station
+var Station = {
+    // Fonction d'initialisation d'une station
+    initStation: function(station) {
+        this.name = station.name.split("-")[1]; // Extraction du nom de la station en faisant un découpage de la chaîne de caractères grâce à un split('-'), et je récupéres le premier élément après le tiret.
+        this.address = station.address;
+        if (station.status === "OPEN") {
+            this.status = "ouverte";
+        } else if (station.status === "CLOSED") {
+            this.status = "fermée";
+        }
+        this.availableStand = station.available_bike_stands;
+        this.availableBike = station.available_bikes;
+    },
+
+    //Fontion qui affiche les données d'une station.
+    decrireStation: function() {
+        // Je procéde aux testes sur la disponibilité des vélos.
+        if (this.status === "fermée") {
+            buttonReserve.style.display = "none";
+            availableBike.style.display = "none";
+            availableStand.style.display = "none";
+            statusStation.style.color = "red";
+        } else if (this.availableBike === 0) {
+            buttonReserve.style.display = "none";
+            availableBike.style.display = "inline";
+            availableBike.style.color = "red";
+            availableStand.style.display = "inline";
+            statusStation.style.color = "green";
+        } else {
+            buttonReserve.style.display = "flex";
+            availableBike.style.display = "inline";
+            availableStand.style.display = "inline";
+            statusStation.style.color = "green";
+            availableBike.style.color = "green";
+        }
+
+        stationTitle.textContent = "STATION : " + this.name;
+        addressStation.textContent = this.address;
+        statusStation.textContent = "Cette Station est actuellement : " + this.status;
+        availableBike.textContent = "Nombre de vélos disponibles : " + this.availableBike;
+        availableStand.textContent = "Emplacements Vides : " + this.availableStand;
+    }
+};

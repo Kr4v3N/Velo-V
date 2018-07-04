@@ -1,0 +1,120 @@
+/*------------------------------------------------*\
+                    MEDIA QUERIES
+\*------------------------------------------------*/
+
+
+/*----------------------------*\
+   ECRAN AU-DESSOUS DE 781px
+\*----------------------------*/
+@media only screen and (max-width: 781px){
+
+    /*-----Header-------*/
+    .m-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        background: #FF5722;
+        /* Je cache la navbar en lui donnant une valeur de -100% */
+        -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        transform: translateY(-100%);
+        -webkit-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+    }
+    .m-link {
+        display: block;
+        text-align: center;
+        padding: 0;
+        height: 55px;
+        width: 180px;
+        margin: auto;
+    }
+    .m-nav-toggle {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    /*-----Slider-------*/
+    #slider-content h2 {
+        font-size: 1.3em;
+    }
+    .text-slider {
+        font-size: 0.8em;
+    }
+
+    /*-----Map-----*/
+    #map {
+        width: 95%;
+        height: 450px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    /*-----Réservation-----*/
+    .reservation {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    /*-----Information-----*/
+    .information {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+/*----------------------------*\
+   ECRAN AU-DESSOUS DE 690px
+\*----------------------------*/
+@media only screen and (max-width: 690px){
+    .step {
+        margin: 15px;
+        padding: 30px;
+    }
+}
+/*----------------------------*\
+   ECRAN AU-DESSOUS DE 505px
+\*----------------------------*/
+@media only screen and (max-width: 515px){
+
+    /*-----Header-----*/
+    .m-link {
+    font-weight: 400;
+    height: 60px;
+    }
+    .m-nav-toggle {
+    width: 30px;
+    height: 70px;
+    }
+
+    /*-----Slider-------*/
+    #slider-content h2 {
+        font-size: 1.1em;
+    }
+    .step {
+        margin: 10px;
+        padding: 20px;
+    }
+}
+
+/*----------------------------*\
+   ECRAN AU-DESSOUS DE 320px
+\*----------------------------*/
+@media only screen and (max-width: 320px){
+
+    /*-----Slider-------*/
+    #slider-content h2 {
+        font-size: 0.8em;
+    }
+    .img-slider img {
+    width: 90%;
+    margin-left: 5px;
+    }
+}

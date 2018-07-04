@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Vélo'V</title>
+    <meta charset="utf-8">
+    <!-- Les commentaires conditionnels permettent d'ajouter du code HTML qui ne sera interprété que par le navigateur Internet Explorer de Microsoft.-->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><!
+        [endif]-->
+    <meta name="description" content="Vélo'v vous permet de réserver un vélo sur Lyon.">
+    <!--Je definis comme largeur de "viewport" la largeur du materiel utilisé pour visualiser la page web et je m'assure qu'aucun zoom ne serra fait à l'affichage de la page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-------------------------------------------------------------
+        Métadonnées de la page web pour améliorer le réferencement
+    -------------------------------------------------------------->
+    <!-- Protocole Open Graph ( C'est un ensemble de balises qui permet à un webmaster de donner aux principaux réseaux sociaux (Facebook, Google +, Twitter, LinkedIn...) des informations précises sur ses pages. ) -->
+    <!-- C'est le titre de ma page pour l'Open Graph  -->
+    <meta property="og:title" content="Vélo'V" />
+    <!-- C'est le type de ma page (website)  -->
+    <meta property="og:type" content="website" />
+    <!-- C'est l'URL de référence, de ma page  -->
+    <meta property="og:url" content="https://www.fafachena.com/" />
+    <!-- C'est l'URL de l'image qui représente votre page dans l'Open Graph  -->
+    <meta property="og:image" content="https://www.monsite.com/images/exemple_image.jpg" />
+    <!-- C'est une description courte de ma page  -->
+    <meta property="og:description" content="Vélo'V vous permet de réserver un vélo sur Lyon de manière intuitive." />
+</head>
+
+<body>
+    <!-----------------------------
+                HEADER
+    ------------------------------>
+
+    <!-- Dans le cadre de L'ARIA ("Accessible Rich Internet Application"), l’attribut "role" définit le type général d’un objet donc facilite l'accessibilité aux personnes handicapées -->
+    <header role="header">
+        <nav class="menu" role="navigation">
+            <div class="inner">
+                <div class="m-left">
+                    <h1 class="logo">Vélo'<span class="letter">V </span><a href="#slider-content"><img src="images/Logo_Velov.png" alt="logo"/></a></h1>
+                </div>
+                <div class="m-right">
+                    <a href="#slider-content" class="m-link"><i class="fas fa-home"></i> Accueil</a>
+                    <a href="#reservation" class="m-link"><i class="fas fa-map-marked"></i> Carte</a>
+                </div>
+                <div class="m-nav-toggle">
+                    <span class="m-toggle-icon"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-----------------------------
+                SLIDER
+    ------------------------------>
+    <section id="slider-content">
+        <h2>Bienvenue sur Vélo'V</h2>
+
+        <!-- Conteneur du Diaporama -->
+        <div id="slider">
+
+            <!-- Diaporama_1 -->
+            <div class="step">
+                <div class="img-slider"><img src="images/diapo-1.png" alt=""></div>
+                <div class="text-slider">
+                    <h3>Etape 1</h3>
+                    <p><strong>Vélo'V </strong>vous permet de réserver un vélo sur la ville de Lyon, mais aussi de s'informer sur l'état des différentes station en temps réél. Utilisez les flèches directionnelles pour actionner le diaporama.</p>
+                </div>
+            </div>
+
+            <!-- Diaporama_2 -->
+            <div class="step">
+                <div class="img-slider"><img src="images/diapo-2.png" alt=""></div>
+                <div class="text-slider">
+                    <h3>Etape 2</h3>
+                    <p>Choisissez le quartier sur la carte puis cliquez sur un marqueur pour afficher les stations disponibles de la zone.</p>
+                </div>
+            </div>
+
+            <!-- Diaporama_3 -->
+            <div class="step">
+                <div class="img-slider"><img src="images/diapo-3.png" alt=""></div>
+                <div class="text-slider">
+                    <h3>Etape 3</h3>
+                    <p>Une fois la station selectionnée, procedez à votre réservation en cliquant sur "Réserver".</p>
+                </div>
+            </div>
+
+            <!-- Diaporama_4 -->
+            <div class="step">
+                <div class="img-slider"><img src="images/IMG_1.png" alt="réservation"></div>
+                <div class="text-slider">
+                    <h3>Etape 4</h3>
+                    <p>Maintenant vous devez signer dans la zone de signature puis confirmez votre réservation en cliquant sur "Valider".</p>
+                </div>
+            </div>
+            <!-- Diaporama_5 -->
+            <div class="step">
+                <div class="img-slider"><img src="images/IMG_4.png" alt="réservation"></div>
+                <div class="text-slider">
+                    <h3>Etape 5</h3>
+                    <p>Votre vélo est maintenant reservé pour une durée de 20 min. Si cette réservation ne vous convient plus, vous pouvez l'annuler à tout moment. Bonne promenade !</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flèches du diaporama -->
+        <span class="slide-arrow" id="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+        <span class="slide-arrow" id="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+    </section>
+
+    <!------------------------------
+          SECTION RESERVATION
+    ------------------------------->
+
+    <section id="reservation" class="reservation">
+        <!-- MAP -->
+        <div id="map" class="map">
+        </div>
+        <!-- INFORMATION -->
+        <div id="information" class="information">
+            <h2>INFORMATION SUR LA STATION</h2>
+            <h3><span id="station-titre" class="station-titre"></span></h3>
+            <span id="station-adresse" class="station-adresse"></span>
+            <p class="para-info">
+                <span id="station-ouverture" class="station-ouverture"></span><br><br>
+                <span id="station-velo-dispo" class="station-velo-dispo"></span><br><br>
+                <span id="station-emplacement-dispo" class="station-emplacement-dispo"></span>
+            </p>
+            <div id="bouton-confirme" class="bouton-resa">
+                <p>Réserver</p>
+            </div>
+        </div>
+    </section>
+
+    <!------------------------------
+        SECTION INFO RESERVATION
+    ------------------------------->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- SCRIPT JAVASCRIPT -->
+    <script type="text/javascript" src="js/toggleNav.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/mapMarker.js"></script>
+    <script type="text/javascript" src="js/station.js"></script>
+    <script type="text/javascript" src="js/markerclusterer.js"></script>
+    <script type="text/javascript" src="js/general.js"></script>
+    <!-- API Google Map -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=mapVelo.initCarte"></script>
+</body>
+
+</html>

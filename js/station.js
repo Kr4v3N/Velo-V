@@ -1,13 +1,4 @@
 // CREATION DE L'OBJET STATION QUI RECUPERE ET AFFICHE LES INFOS D'UNE STATION VELOV
-var stationTitle = document.getElementById("station-titre");
-var statusStation = document.getElementById("station-ouverture");
-var addressStation = document.getElementById("station-adresse");
-var availableBike = document.getElementById("station-velo-dispo");
-var availableStand = document.getElementById("station-emplacement-dispo")
-var buttonConfirme = document.getElementById("bouton-valider");
-var buttonErase = document.getElementById("bouton-efface");
-var buttonReserve = document.getElementById("bouton-confirme");
-var canvas = document.getElementById("signature");
 
 var Station = {
 	// Fonction d'initialisation d'une station

@@ -1,12 +1,11 @@
-
-
 // CREATION DE L'OBJET CANVAS
+
 var Canvas = {
     // INITIALISATION DU CANVAS
     initCanvas: function (canvas) {
         context = canvas.getContext("2d");
         context.fillText("Signez ici", 20, 20);
-        painting = false;
+        painting = true;
     },
     // FONCTIONS CONCERNANT LA SIGNATURE A LA SOURIS
     startDraw: function () {
@@ -89,9 +88,6 @@ var Canvas = {
 // --------------------------------- //
 
 // CREATION DE L'ESPACE SIGNATURE AVEC L'OBJET CANVAS
-
-var buttonConfirme = document.getElementById("bouton-valider");
-var buttonErase = document.getElementById("bouton-efface");
 
 var espaceSignature = Object.create(Canvas);
 espaceSignature.initCanvas(canvas);

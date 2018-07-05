@@ -2,12 +2,6 @@
 
 $(document).ready(function(){
 
-    var $LeftArrow = $('#left');
-    var $RightArrow = $('#right');
-    var $Step = $('.step');
-    var $Keyboard = $('body');
-
-
     /* Je crée un objet "slider" avec 2 propriétés, index qui a la valeur 1 et autoPlay qui a la valeur null et 5 méthodes. */
     var slider = {
       index : 1,

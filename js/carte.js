@@ -1,6 +1,6 @@
 
 //CREATION OBJET CARTE AVEC ZOOM SUR LYON ET MISE EN PLACE DES MARKERS DES STATIONS VELOV
-var carteVelov = document.getElementById("map");
+
 var Carte = {
 	// coordonnées gps ville de lyon
 	city: {lat: 45.76, lng: 4.85},
@@ -13,7 +13,7 @@ var Carte = {
     	center: this.city
     	});
 	},
-	// Initialise un marker
+
 	// Initialise un marker
 	initMarker: function(station) {
 		// Icone en fonction de l'ouverture ou non de la station

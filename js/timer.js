@@ -1,11 +1,7 @@
-var buttonReserve = document.getElementById("bouton-confirme");
-var rebours = document.getElementById("rebours");
-var timer = document.getElementById("timer");
-var bouttonCancel = document.getElementById("bouton-annuler");
 
 // CREATION D'UN OBJET TIMER
 var Timer = {
-    // initilaisation du timer avec un temps donné
+    // initialisation du timer avec un temps donné
     initTimer: function (time) {
         this.time = time;
         sec = Number(this.time.split(':')[1]);
@@ -20,12 +16,8 @@ var Timer = {
             clearInterval(this.timerId);
             sessionStorage.clear();
         } else if (min >= 0) {
-            if (sec === 0 ) {
-                sec = 59;
-                min = min -1
-            } else {
-                sec = sec -1;
-            }
+            if (sec === 0 ) {sec = 59; min = min -1}
+                else { sec = sec -1;}
             if (sec < 10) {
                 this.time = min + ":0" + sec;
 

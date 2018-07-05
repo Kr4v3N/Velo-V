@@ -9,7 +9,7 @@
 @media only screen and (max-width: 781px){
 
     /*-----Header-------*/
-    .m-right {
+    .m-right{
         position: absolute;
         top: 0;
         left: 0;
@@ -25,7 +25,7 @@
         -o-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
     }
-    .m-link {
+    .m-link{
         display: block;
         text-align: center;
         padding: 0;
@@ -33,48 +33,55 @@
         width: 180px;
         margin: auto;
     }
-    .m-nav-toggle {
+    .m-nav-toggle{
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
     }
-
-    /*-----Slider-------*/
-    #slider-content h2 {
-        font-size: 1.3em;
-    }
-    .text-slider {
+    .text-slider{
         font-size: 0.8em;
     }
 
+    /*-----Slider-------*/
+    #slider-content h2{
+        font-size: 1.3em;
+    }
     /*-----Map-----*/
     #map {
-        width: 95%;
-        height: 450px;
-        margin-bottom: 20px;
-        margin-top: 50px;
+    width: 95%;
+    height: 450px;
+    margin-left: 10px;
     }
-
-    /*-----Réservation-----*/
-    .reservation {
+        .reservation {
         width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 0 auto;
     }
-
-    /*-----Information-----*/
+    .map {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 20px;
+        margin-top: 110px;
+    }
     .information {
         width: 100%;
         padding-bottom: 20px;
     }
+    .timer-reservation {
+        display: flex;
+    }
+    .timer {
+        font-size: 16px;
+    }
+}
 
 /*----------------------------*\
    ECRAN AU-DESSOUS DE 690px
 \*----------------------------*/
 @media only screen and (max-width: 690px){
-    .step {
+    .step{
         margin: 15px;
         padding: 30px;
     }
@@ -85,11 +92,11 @@
 @media only screen and (max-width: 515px){
 
     /*-----Header-----*/
-    .m-link {
+    .m-link{
     font-weight: 400;
     height: 60px;
     }
-    .m-nav-toggle {
+    .m-nav-toggle{
     width: 30px;
     height: 70px;
     }
@@ -98,7 +105,7 @@
     #slider-content h2 {
         font-size: 1.1em;
     }
-    .step {
+    .step{
         margin: 10px;
         padding: 20px;
     }

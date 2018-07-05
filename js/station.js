@@ -1,9 +1,13 @@
-// CREATION DE L'OBJET STATION QUI RECUPERE ET AFFICHE LES INFOS D'UNE STATION VELOV
+// ---------------------------- //
+// ------    STATION  --------- //
+// ---------------------------- //
+
+// Création de l'objet station qui récupère et affiche les données d'une station
 
 var Station = {
 	// Fonction d'initialisation d'une station
 	initStation: function(station) {
-		this.name = station.name.split("- ")[1];
+		this.name = station.name.split("- ")[1];/* Extraction du nom de la station en faisant un découpage de la chaîne de caractères grâce à un split('-'), et je récupéres le premier élément après le tiret.*/
 		this.address = station.address;
 		if (station.status === "OPEN") {
 			this.status = "ouverte";
@@ -23,9 +27,9 @@ var Station = {
 			alert ("sessionStorage n'est pas supporté");
 		};
 	},
-	//FONCTION QUI AFFICHE LES INFOS D'UNE STATION
+	//Fontion qui affiche les données d'une station.
 	decrireStation: function() {
-		// FAIRE ICI LES TEST SUR LES DISPO VELO
+		// Je procéde aux testes sur la disponibilité des vélos.
 		if (this.status === "fermée") {
 			buttonReserve.style.display = "none";
 			availableBike.style.display = "none";

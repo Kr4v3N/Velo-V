@@ -1,5 +1,8 @@
+// ----------------------------------- //
+// -------------  TIMER  ------------- //
+// ----------------------------------- //
 
-// CREATION D'UN OBJET TIMER
+// Création d'un objet Timer
 var Timer = {
     // initialisation du timer avec un temps donné
     initTimer: function (time) {

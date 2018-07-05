@@ -1,5 +1,8 @@
+// ---------------------------- //
+// ------  RESERVATION  ------- //
+// ---------------------------- //
 
-//CREATION D'UN OBJET RESERVATION
+// Création d'un objet réservation
 var Reservation = {
     // initialisation de la réservation avec un temps donné et le nom de la station
     initReservation: function(time, station) {

@@ -1,3 +1,7 @@
+// ---------------------------- //
+// ------  OBJET SLIDER  ------ //
+// ---------------------------- //
+
 /* J'ai appelé jQuery avec le document du DOM en paramètre, en lui demandant d’exécuter la méthode ready() qui permet d’exécuter une fonction, passée en paramètre, lorsque ce document est chargé et prêt ! */
 
 $(document).ready(function(){
@@ -15,7 +19,7 @@ $(document).ready(function(){
         slider.autoPlay = setInterval(function() { /* La méthode "setInterval()"" déclenche une opération à intervalles réguliers */
         slider.index ++; // Incrementation du slide suivant
         slider.displaySlideshow(slider.index);
-        }, 6000);
+        }, 9000);
       },
       // Méthode: affichage du slider
       displaySlideshow: function(n) {

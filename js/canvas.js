@@ -1,4 +1,8 @@
-// CREATION DE L'OBJET CANVAS
+// ---------------------------- //
+// ---------  CANVAS  --------- //
+// ---------------------------- //
+
+// Création de l'objet canvas
 
 var Canvas = {
     // INITIALISATION DU CANVAS
@@ -86,42 +90,43 @@ var Canvas = {
 // ----------------------------------- //
 // -------------  CANVAS ------------ //
 // --------------------------------- //
-
+//
 // CREATION DE L'ESPACE SIGNATURE AVEC L'OBJET CANVAS
-
 var espaceSignature = Object.create(Canvas);
 espaceSignature.initCanvas(canvas);
 
-canvas.addEventListener("mousedown", function (e) {
+canvas.addEventListener("mousedown", function (e) { /* L'évènement mousedown est déclenché lorsque le dispositif de pointage de la souris est actif */
     painting = true;
-    cursorX = (e.pageX - this.offsetLeft) ;
+    cursorX = (e.pageX - this.offsetLeft);
     cursorY = (e.pageY - this.offsetTop);
     espaceSignature.startDraw();
 });
-canvas.addEventListener("mousemove", function (e) {
+canvas.addEventListener("mousemove", function (e) { /* L'événement mousemove se déclenche quand un dispositif de pointage (la plupart du temps une souris) se déplace alors qu'elle est au dessus d'un élément. */
     if (painting === true) {
         cursorX = (e.pageX - this.offsetLeft);
         cursorY = (e.pageY - this.offsetTop);
         espaceSignature.draw();
     }
 });
-canvas.addEventListener("mouseup", function () {
+canvas.addEventListener("mouseup", function () { /* L'événement mouseup est déclenché quand un dispositif de pointage est relâché au dessus d'un élément.  */
     espaceSignature.stopDraw();
     buttonConfirme.style.display = "flex";
     buttonErase.style.display = "flex";
 });
-canvas.addEventListener("touchstart", function(e) {
+
+// METHODE: GERE LES EVENEMENTS TACTILE SUR MOBILE
+canvas.addEventListener("touchstart", function(e) { /* L'événement Touchstart est déclenché lorsqu'un ou plusieurs points de contact sont placés sur la surface */
     e.preventDefault();
     espaceSignature.handleStart(e);
 });
-canvas.addEventListener("touchend", function(e) {
+canvas.addEventListener("touchend", function(e) { /* L'événement touchend est déclenché quand un point de contact est retiré de la surface. */
     e.preventDefault();
     espaceSignature.handleEnd(e);
     buttonConfirme.style.display = "flex";
     buttonErase.style.display = "flex";
     buttonConfirme.scrollIntoView({behavior: "smooth"});
 });
-canvas.addEventListener("touchcancel", function(e) {
+canvas.addEventListener("touchcancel", function(e) { /* L'événement touchcancel est déclenché lorsqu'un ou plusieurs points de contact ont été perturbés de manière spécifique à la mise en œuvre (par exemple, trop de points de contact sont créés) */
     e.preventDefault();
     espaceSignature.handleCancel(e);
 });
@@ -129,7 +134,7 @@ canvas.addEventListener("touchleave", function(e) {
     e.preventDefault();
     espaceSignature.handleEnd(e);
 });
-canvas.addEventListener("touchmove", function(e) {
+canvas.addEventListener("touchmove", function(e) { /* L'événement touchmove est déclenché lorsqu'un ou plusieurs points de contact sont déplacés le long de la surface tactile. */
     e.preventDefault();
     espaceSignature.handleMove(e);
 });
@@ -139,7 +144,6 @@ buttonErase.addEventListener("click", function () {
     buttonConfirme.style.display = "none";
     buttonErase.style.display = "none";
 });
-
 
 // --------------------------------------- //
 // ------------ RESA STATION ------------ //
@@ -165,7 +169,7 @@ buttonReserve.addEventListener("click", function () {
 buttonConfirme.addEventListener("click", function () {
     // CREATION D'UNE NOUVELLE RESERVATION
     newReservation = Object.create(Reservation);
-    newReservation.initReservation("01:00", sessionStorage.getItem("nomStation"));
+    newReservation.initReservation("20:00", sessionStorage.getItem("nomStation"));
     rebours.textContent = newReservation.time; // Affichage du temps initial
     espaceSignature.erase(); // Effacement signature
 });

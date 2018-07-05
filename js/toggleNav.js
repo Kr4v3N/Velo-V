@@ -1,3 +1,9 @@
+// ----------------------------------- //
+// ------  ANIMATION HAMBURGER  ------ //
+// ----------------------------------- //
+
+/* Le jQuery nous fournit également une méthode nous permettant de modifier l’état d'affectation d’un attribut class à un ou plusieurs éléments HTML, c’est-à-dire de l’ajouter si il n’est pas présent ou de le supprimer s'il l’est.*/
+
 // Je place l'integralité de mon code jQuery à l'intérieur du gestionnaire d'évenement "ready" pour eviter tout problème d'execution du code à cause d'un chargement incomplet de la page.
 // $ appel à la librairie jQuery
 // $("selecteur css") puis avec le symbole "." j'applique une méthode à l'élément html.
@@ -14,8 +20,6 @@
     })
 
  });
-
-// Le jQuery nous fournit également une méthode nous permettant de modifier l’état d'affectation d’un attribut class à un ou plusieurs éléments HTML, c’est-à-dire de l’ajouter si il n’est pas présent ou de le supprimer si il l’est.
 
 // La méthode "toggleClass()"" va nous permettre d’inverser l’état de visibilité d’une classe, c’est à dire de l’afficher si il est caché ou de le cacher si il est affiché.
 

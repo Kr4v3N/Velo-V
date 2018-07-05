@@ -419,10 +419,10 @@ iframe{
   display: none;
   padding: 10px 20px;
   border-radius: 20px;
-  background-color: rgba(260,2, 60, 0.7);
+  background-color: rgba(255, 138, 101,0.7);
   cursor: pointer;
   margin-left: 20px;
 }
 .bouton-annuler:hover {
-  background-color: rgba(260,2, 60, 0.5);
+  background-color: rgba(255, 138, 101,1.0);
 }

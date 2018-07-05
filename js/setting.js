@@ -46,7 +46,9 @@ var $LeftArrow = $('#left');
 var $RightArrow = $('#right');
 var $Step = $('.step');
 var $Keyboard = $('body');
-var carteVelov = document.getElementById("map");
+// L'objet document représente la page Web.
+// La méthode getElementById : permet d'accéder à un élément HTML est d'utiliser l'identifiant de l'élément.
+var carteVelov = document.getElementById("map"); // On récupère l'objet map dans la variable carteVelov avec la méthode "getElementById".
 var stationTitle = document.getElementById("station-titre");
 var statusStation = document.getElementById("station-ouverture");
 var addressStation = document.getElementById("station-adresse");

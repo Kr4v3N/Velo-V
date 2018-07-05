@@ -7,23 +7,24 @@
 var Canvas = {
     // INITIALISATION DU CANVAS
     initCanvas: function (canvas) {
-        context = canvas.getContext("2d");
-        context.fillText("Signez ici", 20, 20);
-        painting = true;
+        context = canvas.getContext("2d"); // On récupère le context du canvas avec la méthode "getContext"
+        context.fillText("Signez ici", 20, 20); // la méthode "fillText();" trace la chaîne de caractères
+        paint = true;
     },
     // FONCTIONS CONCERNANT LA SIGNATURE A LA SOURIS
     startDraw: function () {
-        context.beginPath();
-        context.moveTo(cursorX, cursorY);
+        context.beginPath(); // On indique au context que l'on s'apprête à effectuer un nouveau tracé.
+        context.moveTo(cursorX, cursorY); /* La méthode "moveTo" déplace le point de départ de chaque ligne */
     },
     draw: function () {
-        context.lineTo(cursorX, cursorY);
-        context.strokeStyle = "black";
-        context.lineWidth = 3;
-        context.stroke();
+        context.lineTo(cursorX, cursorY); // La méthode 'lineTo" trace une ligne en partant de la position actuelle, jusqu'aux coordonnées x, y indiquées.
+        context.strokeStyle = "black"; // J'ai assigné à "context.strokeStyle" la valeur noir
+        context.lineWidth = 3; // L'attribut "lineWidth" change l'épaisseur des lignes.
+        context.lineJoin = "round";
+        context.stroke(); // La méthode "context.stroke() crée juste les traits des lignes.
     },
     stopDraw: function () {
-        painting = false;
+        paint = false;
     },
     erase: function () {
         context.clearRect(0,0, 350 , 200);
@@ -96,13 +97,13 @@ var espaceSignature = Object.create(Canvas);
 espaceSignature.initCanvas(canvas);
 
 canvas.addEventListener("mousedown", function (e) { /* L'évènement mousedown est déclenché lorsque le dispositif de pointage de la souris est actif */
-    painting = true;
+    paint = true;
     cursorX = (e.pageX - this.offsetLeft);
     cursorY = (e.pageY - this.offsetTop);
     espaceSignature.startDraw();
 });
 canvas.addEventListener("mousemove", function (e) { /* L'événement mousemove se déclenche quand un dispositif de pointage (la plupart du temps une souris) se déplace alors qu'elle est au dessus d'un élément. */
-    if (painting === true) {
+    if (paint === true) {
         cursorX = (e.pageX - this.offsetLeft);
         cursorY = (e.pageY - this.offsetTop);
         espaceSignature.draw();

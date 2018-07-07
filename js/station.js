@@ -16,7 +16,7 @@ var Station = {
 		}
 		this.availableStand = station.available_bike_stands;
 		this.availableBike = station.available_bikes;
-		// Si reservation en cours, alors un vélo en moins dans la station
+		// Si réservation en cours, alors un vélo en moins dans la station
 		if (typeof sessionStorage!='undefined') {
 			if ('time' in sessionStorage) {
 				if (sessionStorage.getItem("nomStation") === this.name) {
@@ -27,7 +27,8 @@ var Station = {
 			alert ("sessionStorage n'est pas supporté");
 		};
 	},
-	//Fontion qui affiche les données d'une station.
+
+	//Fonction qui affiche les données d'une station avec des couleurs de texte differentes selon les cas.
 	decrireStation: function() {
 		// Je procéde aux testes sur la disponibilité des vélos.
 		if (this.status === "fermée") {
@@ -48,13 +49,14 @@ var Station = {
 			statusStation.style.color = "green";
 			availableBike.style.color = "green";
 		}
-		canvas.style.display = "none";
-		buttonConfirme.style.display = "none";
-    	buttonErase.style.display = "none";
+
 		stationTitle.textContent = "STATION : " + this.name;
 		addressStation.textContent = this.address;
 		statusStation.textContent = "Cette Station est actuellement : " + this.status;
 		availableBike.textContent = "Nombre de vélos disponibles : " + this.availableBike;
 		availableStand.textContent = "Emplacements Vides : " + this.availableStand ;
+		canvas.style.display = "none";
+		buttonConfirme.style.display = "none";
+    	buttonErase.style.display = "none";
 	}
 };

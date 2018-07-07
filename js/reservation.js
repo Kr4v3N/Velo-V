@@ -2,7 +2,7 @@
 // ------  RESERVATION  ------- //
 // ---------------------------- //
 
-// Création d'un objet réservation
+// CREATION D'UN OBJET RESERVATION
 var Reservation = {
     // initialisation de la réservation avec un temps donné et le nom de la station
     initReservation: function(time, station) {
@@ -10,7 +10,7 @@ var Reservation = {
         this.station = station;
         newTimer = Object.create(Timer);
         newTimer.initTimer(this.time);
-        timerId = setInterval(newTimer.onTimer, 1000);
+        timerId = setInterval(newTimer.onTimer, 1000); // Cette fonction permet d'appeler une fonction à intervalles réguliers. Les paramètres de "setInterval" sont la fonction à appeler et le délai entre deux appels. Ce délai est exprimé en millisecondes.
         nameStationReserved.textContent = this.station;
         // modifications affichages bouton et canvas
         buttonReserve.textContent = "Nouvelle réservation";

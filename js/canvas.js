@@ -3,15 +3,16 @@
 // ---------------------------- //
 
 // Création de l'objet canvas
-
+var canvas = document.getElementById("signature");
+var information = document.getElementById("information");
 var Canvas = {
     // INITIALISATION DU CANVAS
     initCanvas: function (canvas) {
         context = canvas.getContext("2d"); // On récupère le context du canvas avec la méthode "getContext"
-        context.fillText("Signez ici", 20, 20); // la méthode "fillText();" trace la chaîne de caractères
-        paint = true;
+        context.fillText("Signez ici", 10, 20); // la méthode "fillText();" trace la chaîne de caractères
+        paint = false;
     },
-    // FONCTIONS CONCERNANT LA SIGNATURE A LA SOURIS
+    // FONCTIONS POUR LA SIGNATURE A LA SOURIS
     startDraw: function () {
         context.beginPath(); // On indique au context que l'on s'apprête à effectuer un nouveau tracé.
         context.moveTo(cursorX, cursorY); /* La méthode "moveTo" déplace le point de départ de chaque ligne */
@@ -20,7 +21,6 @@ var Canvas = {
         context.lineTo(cursorX, cursorY); // La méthode 'lineTo" trace une ligne en partant de la position actuelle, jusqu'aux coordonnées x, y indiquées.
         context.strokeStyle = "black"; // J'ai assigné à "context.strokeStyle" la valeur noir
         context.lineWidth = 3; // L'attribut "lineWidth" change l'épaisseur des lignes.
-        context.lineJoin = "round";
         context.stroke(); // La méthode "context.stroke() crée juste les traits des lignes.
     },
     stopDraw: function () {
@@ -29,7 +29,7 @@ var Canvas = {
     erase: function () {
         context.clearRect(0,0, 350 , 200);
     },
-    // FONCTIONS CONCERNANT LA SIGNATURE AU TOUCHÉ
+    // FONCTIONS POUR LA SIGNATURE SUR ECRANS TACTILES
     ongoingTouches: [], // tableau qui regroupe les touch
     ongoingTouchIndexById: function (idToFind) {
         for (var i=0; i<this.ongoingTouches.length; i++) {
@@ -41,13 +41,14 @@ var Canvas = {
         return -1;    // not found
     },
     handleStart: function(e) {
-        e.preventDefault();
+        e.preventDefault(); // annule Le comportement par défaut en appelant la méthode "preventDefault" sur l'objet Event.
         var touches = e.changedTouches;
         for (var i=0; i<touches.length; i++) {
             this.ongoingTouches.push(touches[i]);
             var color = "black";
             context.fillStyle = color;
-            context.fillRect(touches[i].pageX-2-canvas.offsetLeft, touches[i].pageY-2-canvas.offsetTop, 4, 4);
+            context.fillRect(touches[i].pageX-2-canvas.offsetLeft,  e.touches[i].pageY-information.offsetTop-canvas.offsetTop, 4, 4);
+        console.log( e.touches[i].pageY-information.offsetTop-canvas.offsetTop);
         }
     },
     handleMove:function(e) {
@@ -57,13 +58,19 @@ var Canvas = {
         for (var i=0; i<touches.length; i++) {
             var color = "black";
             var idx = this.ongoingTouchIndexById(touches[i].identifier);
+
             context.fillStyle = color;
-            context.beginPath();
-            context.moveTo(this.ongoingTouches[idx].pageX-canvas.offsetLeft, this.ongoingTouches[idx].pageY-canvas.offsetTop);
-            context.lineTo(touches[i].pageX-canvas.offsetLeft, touches[i].pageY-canvas.offsetTop);
-            context.closePath();
-            context.stroke();
+
+        context.lineTo(touches[i].pageX-canvas.offsetLeft, e.touches[i].pageY-information.offsetTop-canvas.offsetTop);
+
+        context.stroke();
+        context.beginPath();
+        context.beginPath();
+        context.moveTo(touches[i].pageX-2-canvas.offsetLeft, e.touches[i].pageY-information.offsetTop-canvas.offsetTop);
+
             this.ongoingTouches.splice(idx, 1, touches[i]);
+            console.log(touches[i].pageX-2-canvas.offsetLeft);
+            console.log(e.touches[i].pageY-information.offsetTop-canvas.offsetTop);
       }
     },
     handleEnd: function (e) {
@@ -75,8 +82,8 @@ var Canvas = {
             var idx = this.ongoingTouchIndexById(touches[i].identifier);
             context.fillStyle = color;
             context.beginPath();
-            context.moveTo(this.ongoingTouches[i].pageX-canvas.offsetLeft, this.ongoingTouches[i].pageY-canvas.offsetTop);
-            context.lineTo(touches[i].pageX-canvas.offsetLeft, touches[i].pageY-canvas.offsetTop);
+            context.moveTo(touches[i].pageX-2-canvas.offsetLeft, touches[i].pageY-information.offsetTop-canvas.offsetTop);
+            context.lineTo(touches[i].pageX-canvas.offsetLeft, touches[i].pageY-information.offsetTop-canvas.offsetTop);
             this.ongoingTouches.splice(i, 1);
         }
     },
@@ -88,24 +95,27 @@ var Canvas = {
     }
 };
 
+
 // ----------------------------------- //
 // -------------  CANVAS ------------ //
 // --------------------------------- //
 //
-// CREATION DE L'ESPACE SIGNATURE AVEC L'OBJET CANVAS
+// CREATION DE LA ZONE SIGNATURE AVEC L'OBJET CANVAS
 var espaceSignature = Object.create(Canvas);
 espaceSignature.initCanvas(canvas);
-
+/* La méthode "addEventListener" lui ajoute un gestionnaire pour un événement particulier. Cette méthode prend deux paramètres : le type de l'événement et la fonction qui gère l'événement. Cette fonction sera appelée à chaque fois que l'événement se déclenchera sur l'élément. */
 canvas.addEventListener("mousedown", function (e) { /* L'évènement mousedown est déclenché lorsque le dispositif de pointage de la souris est actif */
     paint = true;
-    cursorX = (e.pageX - this.offsetLeft);
-    cursorY = (e.pageY - this.offsetTop);
+    cursorX = (e.offsetX);
+    cursorY = (e.offsetY);
+    console.log(cursorY);
+    console.log(cursorX);
     espaceSignature.startDraw();
 });
-canvas.addEventListener("mousemove", function (e) { /* L'événement mousemove se déclenche quand un dispositif de pointage (la plupart du temps une souris) se déplace alors qu'elle est au dessus d'un élément. */
+canvas.addEventListener("mousemove", function (e) { /* L'événement mousemove se déclenche quand la souris se déplace alors qu'elle est au dessus d'un élément. */
     if (paint === true) {
-        cursorX = (e.pageX - this.offsetLeft);
-        cursorY = (e.pageY - this.offsetTop);
+        cursorX = (e.offsetX);
+        cursorY = (e.offsetY);
         espaceSignature.draw();
     }
 });
@@ -115,7 +125,7 @@ canvas.addEventListener("mouseup", function () { /* L'événement mouseup est d�
     buttonErase.style.display = "flex";
 });
 
-// METHODE: GERE LES EVENEMENTS TACTILE SUR MOBILE
+// METHODE: GERE LES EVENEMENTS TACTILE
 canvas.addEventListener("touchstart", function(e) { /* L'événement Touchstart est déclenché lorsqu'un ou plusieurs points de contact sont placés sur la surface */
     e.preventDefault();
     espaceSignature.handleStart(e);
@@ -145,6 +155,7 @@ buttonErase.addEventListener("click", function () {
     buttonConfirme.style.display = "none";
     buttonErase.style.display = "none";
 });
+
 
 // --------------------------------------- //
 // ------------ RESA STATION ------------ //
@@ -188,5 +199,3 @@ if(typeof sessionStorage!='undefined') {
 } else {
     alert ("sessionStorage n'est pas supporté");
 };
-
-

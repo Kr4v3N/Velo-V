@@ -2,7 +2,7 @@
 // -------------  TIMER  ------------- //
 // ----------------------------------- //
 
-// Création d'un objet Timer
+// CREATION DE L'OBJET TIMER
 var Timer = {
     // initialisation du timer avec un temps donné
     initTimer: function (time) {

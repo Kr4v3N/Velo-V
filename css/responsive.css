@@ -52,7 +52,7 @@
     height: 450px;
     margin-left: 10px;
     }
-        .reservation {
+    .reservation {
         width: 100%;
         flex-direction: column;
         justify-content: center;
@@ -70,10 +70,10 @@
         padding-bottom: 20px;
     }
     .timer-reservation {
-        display: flex;
+        font-size: 0.8em;
     }
     .timer {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 

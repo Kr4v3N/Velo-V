@@ -84,24 +84,24 @@
     	           <div class="img-slider"><img src="images/diapo-3.png" alt=""></div>
     	           <div class="text-slider">
                        <h3>Etape 3</h3>
-                       <p>Une fois la station selectionnée, procedez à votre réservation en cliquant sur "Réserver".</p>
+                       <p>Une fois la station selectionnée, procedez à votre réservation en cliquant sur "Confirmer".</p>
     	          </div>
     	        </div>
 
     	        <!-- Diaporama_4 -->
     	        <div class="step">
-    	          <div class="img-slider"><img src="images/IMG_1.png" alt="réservation"></div>
+    	          <div class="img-slider"><img src="images/diapo-4.png" alt="réservation"></div>
     	          <div class="text-slider">
                       <h3>Etape 4</h3>
-                      <p>Maintenant vous devez signer dans la zone de signature puis confirmez votre réservation en cliquant sur "Valider".</p>
+                      <p>Maintenant vous devez signer dans la zone de signature puis confirmez votre réservation en cliquant sur "Réserver".</p>
     	          </div>
     	        </div>
                 <!-- Diaporama_5 -->
                 <div class="step">
-                  <div class="img-slider"><img src="images/IMG_4.png" alt="réservation"></div>
+                  <div class="img-slider"><img src="images/diapo-5.png" alt="réservation"></div>
                   <div class="text-slider">
                       <h3>Etape 5</h3>
-                      <p>Votre vélo est maintenant reservé pour une durée de 20 min. Si cette réservation ne vous convient plus, vous pouvez l'annuler à tout moment. Bonne promenade !</p>
+                      <p>Votre vélo est maintenant reservé pour une durée de 20 min. Si cette réservation ne vous convient plus, vous pouvez l'annuler à tout moment en bas de page. Bonne promenade !</p>
                   </div>
                 </div>
         	</div>
@@ -110,12 +110,15 @@
           <span class="slide-arrow" id="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           <span class="slide-arrow" id="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
         </section>
-                <!-- SECTION RESERVATION -->
+
+        <!--------------------------
+            SECTION INFORMATION
+        --------------------------->
         <section id="reservation" class="reservation">
             <!-- MAP -->
             <div id="map" class="map">
             </div>
-            <!-- INFORMATION -->
+
             <div id="information" class="information">
                 <h2>INFORMATION SUR LA STATION</h2>
                 <h3><span id="station-titre" class="station-titre"></span></h3>
@@ -126,7 +129,7 @@
                 <span id="station-emplacement-dispo" class="station-emplacement-dispo"></span>
                 </p>
                 <div id="bouton-confirme" class="bouton-resa"><p>Confirmer</p></div>
-                <canvas id="signature" class="signature" width="350" height="200">Votre navigateur ne supporte pas la balise canvas HTML5.</canvas>
+                <canvas id="signature" class="signature" width="350" height="200">Votre navigateur ne supporte pas la balise canvas.</canvas>
                 <div class="espace-bouton">
                     <div id="bouton-valider" class="bouton-resa"><p>Réserver</p></div>
                     <div id="bouton-efface" class="bouton-resa"><p>Effacer</p></div>
@@ -157,8 +160,8 @@
         <script type="text/javascript" src="js/station.js"></script>
         <script type="text/javascript" src="js/markerclusterer.js"></script>
         <script type="text/javascript" src="js/setting.js"></script>
-        <script type="text/javascript" src="js/canvas.js"></script>
         <script type="text/javascript" src="js/reservation.js"></script>
+        <script type="text/javascript" src="js/canvas.js"></script>
         <script type="text/javascript" src="js/timer.js"></script>
         <!-- API Google Map -->
          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=mapVelov.initCarte"></script>

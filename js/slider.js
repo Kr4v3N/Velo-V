@@ -16,7 +16,7 @@ $(document).ready(function(){
         this.clickButton();
         this.eventKeyboard();
         // Initialisation du slider automatique
-        slider.autoPlay = setInterval(function() { /* La méthode "setInterval()"" déclenche une opération à intervalles réguliers */
+        slider.autoPlay = setInterval(function() { /* La méthode "setInterval()" déclenche une opération à intervalles réguliers */
         slider.index ++; // Incrementation du slide suivant
         slider.displaySlideshow(slider.index);
         }, 9000);
@@ -39,7 +39,9 @@ $(document).ready(function(){
       // Méthode: changer de slide
       switchSlideshow: function(d) {
           // Arrête le slider auto
-          clearInterval(this.autoPlay);
+          clearInterval(this.autoPlay); // La fonction "clearInterval" annule une répétition démarrée avec "setInterval()".
+          /* La fonction "clearInterval" permet de stopper une exécution répétée. Elle prend en paramètre l'identifiant de l'action "autoPlay", renvoyée par la fonction "setInterval" et stockée dans notre exemple dans la variable "slider".*/
+
           // Affiche le slide suivant
           if (d === 39) { // Est égal à 39 (en valeur et en type)
             this.displaySlideshow(this.index += 1);

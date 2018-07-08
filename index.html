@@ -43,7 +43,7 @@
     				</div>
     				<div class="m-right">
     					<a href="#slider-content" class="m-link"><i class="fas fa-home"></i> Accueil</a>
-    					<a href="#reservation" class="m-link"><i class="fas fa-map-marked"></i> Carte</a>
+    					<a href="#main" class="m-link"><i class="fas fa-map-marked"></i> Carte</a>
     				</div>
     				<div class="m-nav-toggle">
     					<span class="m-toggle-icon"></span>
@@ -55,9 +55,8 @@
         <!-------------------
                SLIDER
         -------------------->
-        <section id="slider-content">
+        <section id="slider-content" role="diaporama">
     		<h2>Bienvenue sur Vélo'V</h2>
-
           <!-- Conteneur du Diaporama -->
           	<div id="slider">
 
@@ -84,7 +83,7 @@
     	           <div class="img-slider"><img src="images/diapo-3.png" alt=""></div>
     	           <div class="text-slider">
                        <h3>Etape 3</h3>
-                       <p>Une fois la station selectionnée, procedez à votre réservation en cliquant sur "Confirmer".</p>
+                       <p>Une fois la station selectionnée, procedez à votre réservation en cliquant sur "Réserver".</p>
     	          </div>
     	        </div>
 
@@ -93,7 +92,7 @@
     	          <div class="img-slider"><img src="images/diapo-4.png" alt="réservation"></div>
     	          <div class="text-slider">
                       <h3>Etape 4</h3>
-                      <p>Maintenant vous devez signer dans la zone de signature puis confirmez votre réservation en cliquant sur "Réserver".</p>
+                      <p>Maintenant vous devez signer dans la zone de signature puis confirmez votre réservation en cliquant sur "Valider".</p>
     	          </div>
     	        </div>
                 <!-- Diaporama_5 -->
@@ -105,65 +104,75 @@
                   </div>
                 </div>
         	</div>
-
           <!-- Flèches du diaporama -->
           <span class="slide-arrow" id="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           <span class="slide-arrow" id="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
         </section>
 
-        <!--------------------------
-            SECTION INFORMATION
-        --------------------------->
-        <section id="reservation" class="reservation">
-            <!-- MAP -->
-            <div id="map" class="map">
-            </div>
+        <!--------------------------------
+           CARTE INFORMATION RESERVATION
+        --------------------------------->
+       <section id="main" role="main">
+            <!-- Map -->
+            <div id="map"></div>
+            <!-- Information sur la station et réservation -->
+            <div id="formulaire">
 
-            <div id="information" class="information">
-                <h2>INFORMATION SUR LA STATION</h2>
-                <h3><span id="station-titre" class="station-titre"></span></h3>
-                <span id="station-adresse" class="station-adresse"></span>
-                <p class="para-info">
-                <span id="station-ouverture" class="station-ouverture"></span><br><br>
-                <span id="station-velo-dispo" class="station-velo-dispo"></span><br><br>
-                <span id="station-emplacement-dispo" class="station-emplacement-dispo"></span>
-                </p>
-                <div id="bouton-confirme" class="bouton-resa"><p>Confirmer</p></div>
-                <canvas id="signature" class="signature" width="350" height="200">Votre navigateur ne supporte pas la balise canvas.</canvas>
-                <div class="espace-bouton">
-                    <div id="bouton-valider" class="bouton-resa"><p>Réserver</p></div>
-                    <div id="bouton-efface" class="bouton-resa"><p>Effacer</p></div>
+              <!-- Infos de la station -->
+              <div class="infos-station">
+                <h2>Détails de la station</h2>
+                <hr />
+                <i id="icon" class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <p class="nom-station">Sélectionnez une station</p>
+                <hr />
+                <i id="icon" class="fas fa-map-signs" aria-hidden="true"></i>
+                <p class="adresse-station"></p>
+                <hr />
+                <i id="icon" class="fas fa-bicycle" aria-hidden="true"></i>
+                <p class="place-libre"></p>
+                <p class="velo-dispo"></p>
+                <button type="button" class="reserver">Réserver</button>
+              </div>
+
+              <!-- Reservation à la signature -->
+              <div class="reservation" id="reservation">
+                <h3>Signez pour réserver</h3>
+                <hr />
+                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                <br />
+                <canvas id="canvas" width="250" height="125"></canvas>
+                <div class="boutons">
+                  <button type="button" class="effacer">Effacer</button>
+                  <button type="button" class="valider" disabled>Valider</button>
                 </div>
+              </div>
             </div>
         </section>
+        <!-------------------
+               FOOTER
+        -------------------->
 
-        <!--------------------------
-        SECTION INFO RESERVATION
-        --------------------------->
-            <!--  -->
-        <section id="timer-reservation" class="timer-reservation">
-            <div id="timer" class="timer">
-                <p>Un vélo réservé à la station <span id="station-reserve" class="station-reserve"></span> pour <span id ="rebours"></span> min</p>
-            </div>
-            <div id="bouton-annuler" class="bouton-annuler">
-                Annuler
-            </div>
-        </section>
+    <footer id="footer" role="footer">
+        <h3>Réservation</h3>
+        <span class="footer-text">Aucune réservation en cours</span>
+        <p class="timer">
+          <span class="minutes"></span>
+          <span class="secondes"></span>
+        </p>
+        <button type="button" class="annuler">Annuler</button>
+    </footer>
 
         <!--------------------------
                   SCRIPT
         --------------------------->
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/toggleNav.js"></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/toggle-nav.js"></script>
         <script type="text/javascript" src="js/slider.js"></script>
-        <script type="text/javascript" src="js/carte.js"></script>
-        <script type="text/javascript" src="js/station.js"></script>
-        <script type="text/javascript" src="js/markerclusterer.js"></script>
-        <script type="text/javascript" src="js/setting.js"></script>
-        <script type="text/javascript" src="js/reservation.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript" src="js/canvas.js"></script>
-        <script type="text/javascript" src="js/timer.js"></script>
+        <script type="text/javascript" src="js/markerclusterer.js"></script>
         <!-- API Google Map -->
-         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=mapVelov.initCarte"></script>
+         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=initMap"></script>
     </body>
 </html>

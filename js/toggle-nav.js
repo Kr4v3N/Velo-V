@@ -1,6 +1,6 @@
-// ----------------------------------- //
-// ------  ANIMATION HAMBURGER  ------ //
-// ----------------------------------- //
+// ---------------------------------------------------//
+// ------  ACTIVATION DE L'ANIMATION HAMBURGER  ------//
+// --------------------------------------------------//
 
 /* Le jQuery nous fournit également une méthode nous permettant de modifier l’état d'affectation d’un attribut class à un ou plusieurs éléments HTML, c’est-à-dire de l’ajouter si il n’est pas présent ou de le supprimer s'il l’est.*/
 
@@ -12,13 +12,10 @@
 // Je passe dans la parenthèse de "function" un argument nommé "e" qui est l'équivalent de l'évènement "event".
 
  $(document).ready(function(){ // Attente du chargement complet du DOM
-
     $(".m-nav-toggle").click(function(e){
-    e.preventDefault(); // La méthode preventDefault() de cet objet permet d’empêcher le navigateur de déclencher son comportement par défaut.
-    $(".m-nav-toggle").toggleClass("open"); // Animation des barres de l'hamburger.
-    $(".m-right").toggleClass("open"); // Animation de la navbar.
+        $(".m-nav-toggle").toggleClass("opened"); // Animation des barres de l'hamburger.
+        $(".m-right").toggleClass("opened"); // Animation de la navbar.
     })
-
  });
 
 // La méthode "toggleClass()"" va nous permettre d’inverser l’état de visibilité d’une classe, c’est à dire de l’afficher si il est caché ou de le cacher si il est affiché.

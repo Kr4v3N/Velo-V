@@ -1,32 +1,3 @@
-// ---------------------------------------//
-// ----------- ELEMENTS DU DOM -----------//
-// ---------------------------------------//
-
-// RECUPERATION DES ELEMENTS DU DOM
-// Variables jQUERY
-var $LeftArrow = $('#left');
-var $RightArrow = $('#right');
-var $Step = $('.step');
-var $Keyboard = $('body');
-// L'objet document représente la page Web.
-// La méthode getElementById : permet d'accéder à un élément HTML est d'utiliser l'identifiant de l'élément.
-var carteVelov = document.getElementById("map"); // On récupère l'objet map dans la variable carteVelov avec la méthode "getElementById".
-var stationTitle = document.getElementById("station-titre");
-var statusStation = document.getElementById("station-ouverture");
-var addressStation = document.getElementById("station-adresse");
-var availableBike = document.getElementById("station-velo-dispo");
-var availableStand = document.getElementById("station-emplacement-dispo");
-var buttonConfirme = document.getElementById("bouton-valider");
-var buttonErase = document.getElementById("bouton-efface");
-var buttonReserve = document.getElementById("bouton-confirme");
-var canvas = document.getElementById("signature");
-var bouttonCancel = document.getElementById("bouton-annuler");
-var nameStationReserved = document.getElementById("station-reserve");
-var timer = document.getElementById("timer");
-var rebours = document.getElementById("rebours");
-//var reservation = document.getElementById("reservation");
-
-
 // --------------------------- //
 // ----------  AJAX  --------- //
 // -------------------------- //
@@ -69,29 +40,5 @@ function ajaxGet(url,callback) {
     // Envoi de la requête
     req.send(null); // Envoyer la requête avec la méthode "send()".
 }
-
-
-// -----------------------------//
-// ----------- CARTE -----------//
-// ----------------------------//
-
-var mapVelov = Object.create(Carte); // Création de la carte avec l'objet carte, "mapVelov.initCarte" est appelée dans index.html
-
-
-// ---------------------------- //
-// ------  API JCDECAUX  ------ //
-// ---------------------------- //
-
-// Appel de L'API JCDecaux pour implementer les markers des stations.
-ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=5d3fd5045875a418e2b763d4b40e94a7333096ca", function(reponse) {
-	allStation = JSON.parse(reponse);// "parse()", prend en paramètre la chaîne de caractères à analyser et retourne le résultat sous forme d'objet JSON
-    allStation.forEach( function(station) { /*"forEach()" appele une fois pour chaque élément présent dans le tableau.*/
-
-    	// Mise en place de tous les markers sur la carte
-    	mapVelov.initMarker(station);
-	});
-	//Regroupement des markers
-    mapVelov.initClustering();
-});
 
 

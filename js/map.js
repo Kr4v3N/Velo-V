@@ -1,42 +1,43 @@
-// OBJET: VelovMap
+// Création de l'objet VelovMap
 var VelovMap = {
   veloDispo: 0,
   placeDispo: 0,
 
-  // INITIALISE LA MAP
+  // J'initialise ma carte Google maps
   initVelov: function (Lat, Lng, api) {
     // Affiche la map
-    var iconBase = "https://fafachena.com/images/";
-    var map = new google.maps.Map(document.getElementById("map"), {
-      center: new google.maps.LatLng(Lat, Lng),
-      zoom: 13,
-      streetViewControl: false
+      var map = new google.maps.Map(document.getElementById("map"), {
+      center: new google.maps.LatLng(Lat, Lng),// les coordonnées du "center" sont fournies au travers d'un nouvel objet : "google.maps.LatLng"
+      zoom: 13, // Je zoom au niveau 13
+      streetViewControl: false // Je retire le bonhommme jaune de la carte
     });
+    var iconBase = "https://fafachena.com/images/"; // J'indique l'emplacement des marqueurs et clusterers.
 
-    // RECUPERATION DES DONNEES JSON DE L'API
+
+    // Récupération des donnés sous format json de L'API.
     ajaxGet(api, function (reponse) {
-      var stations = JSON.parse(reponse);
-      // Créé un tableau de markers
+      var stations = JSON.parse(reponse); /* "parse()", prend en paramètre la chaîne de caractères à analyser et retourne le résultat sous forme d'objet JSON */
+      // Je créé un tableau de marqueurs
       var markers = [];
 
-      // SI RESERVATION EN COURS, L'AFFICHE DANS LE FOOTER
+      // Si réservation en cours, affiche dans le footer
       if (sessionStorage.station != null) {
         $(document).ready(function () {
           $(".footer-text").text("Votre vélo à la station " + sessionStorage.station + " est réservé pour :");
           $("#footer *:not(.timer)").fadeIn("Slow");
           var timeInterval = setInterval(VelovMap.compteur, 1000);
 
-          // EVENT: Annuler la réservation
-          $(".annuler").on("click", function () {
+          // Evénement qui annule la réservation
+          $(".annuler").click(function () {
             VelovMap.annulerReservation();
           });
         });
       }
 
-      // POUR CHAQUE STATION
-      stations.forEach(function (station) {
+      // Les marqueurs pour chaque station
+      stations.forEach(function (station) { /*"forEach()" appele une fois pour chaque élément présent dans le tableau.*/
 
-        // AFFICHE LE MARQUEUR SUR LA MAP
+        // J'affiche le marqeur sur la carte
         var marker = new google.maps.Marker({
           position: station.position,
           title: station.name,
@@ -44,16 +45,16 @@ var VelovMap = {
           icon: iconBase + "station-opened.png"
         });
 
-        // Initialise l'animation du marqueur sur null
+        // J'initialise l'animation du marqueur sur null
         marker.setAnimation(null);
 
-        // EVENT: CLICK SUR LE MARQUEUR
+        // L'événement click sur le marqueur
         marker.addListener("click", function () {
 
           // Mise à jour des infos stations
           VelovMap.majInfos(station.name, station.available_bikes, station.available_bike_stands);
 
-          // SI LE MARQUEUR EST DEJA ANIME, L'ARRETE ET CACHE LES INFOS
+          // Si le marqueur est déja animé alors j'arrête et cache les information
           if (marker.getAnimation() !== null) {
             // Arrête l'animation
             marker.setAnimation(null);
@@ -63,25 +64,25 @@ var VelovMap = {
               $(".nom-station").text("Sélectionnez une station").fadeIn("slow");
             });
           }
-          // SINON ARRETE L'ANIMATION DES AUTRES MARQUEURS, ANIME LE MARQUEUR ET AFFICHE LES INFOS
+          // Sinon arrête l'animation des autres marqueurs, anime le marqueur et affiche les information.
           else {
             markers.forEach(function (marker) {
                marker.setAnimation(null);
             });
-            // Anime le marker
+            // Anime le marqueur
             marker.setAnimation(google.maps.Animation.BOUNCE);
             // Affiche les infos de la station et le cadre réservation
             VelovMap.afficherInfos(station.name, station.address);
           }
 
-          // Scroll vers infos-station quand on clique sur le marker
+          // Scroll vers infos-station quand on clique sur le marqueur
           VelovMap.scrollTo($("#formulaire"));
 
-          // EVENT: Valider la réservation
+          // Evénément: valider la réservation
           $(".valider").on("click", function() {
             // Validation de la réservation
             VelovMap.validerReservation(station.name);
-            // Mise à jour des infos
+            // Mise à jour des informations
             VelovMap.majInfos(station.name, station.available_bikes, station.available_bike_stands);
             // Affiche le nombre de vélos et de places actualisés
             $(".velo-dispo").text("Il y a " + (VelovMap.veloDispo) + " vélo(s) disponible(s)").fadeIn("slow");
@@ -90,12 +91,12 @@ var VelovMap = {
             VelovMap.effacerSignature();
           });
 
-          // EVENT: Effacer la signature
+          // Evénement qui efface la signature
           $(".effacer").on("click", function () {
             VelovMap.effacerSignature();
           });
 
-          // EVENT: Annuler la réservation
+          // Evénément qui annuler la réservation
           $(".annuler").on("click", function () {
             // Annule la réservation
             VelovMap.annulerReservation();
@@ -109,11 +110,11 @@ var VelovMap = {
           $(".reservation").fadeOut("slow");
         });
 
-        // Remplit le tableau de markers
+        // Remplit le tableau de marqueurs
         markers.push(marker);
       });
 
-      // REGROUPE LES MARKERS PAR LOT SUR LA MAP
+      // Regroupe les marqueurs par lot sur la carte
       var markerCluster = new MarkerClusterer (map, markers, {
         imagePath: "images/m"
       });
@@ -122,8 +123,7 @@ var VelovMap = {
 
 
 
-  // METHODE: AFFICHAGE DES INFOS STATIONS ET DU CADRE RESERVATION
-  // -------------------------------------------------------------
+  // Méthode qui affiche des informations des stations et du cadre réservation.
   afficherInfos: function (nomStation, adresseStation) {
     // Cache tous les éléments visible dans infos-station sauf le titre
     $(".infos-station *:visible:not(h2)").fadeOut("slow", function () {
@@ -133,7 +133,7 @@ var VelovMap = {
       $(".place-libre").text("Il y a " + VelovMap.placeDispo + " places libres");
       $(".velo-dispo").text("Il y a " + VelovMap.veloDispo + " vélo(s) disponible(s)");
 
-      // SI IL Y A DES VELOS DISPO ET SI UN VELO N'EST PAS DEJA RESERVE DANS CETTE STATION
+      // S'il y a des vélos disponibles et si un vélo n'est pas deja reservé dans cette station.
       if ((VelovMap.veloDispo > 0) && (nomStation != sessionStorage.station)) {
         // Affiche toutes les infos + bouton "réserver"
         $(".infos-station *").fadeIn("slow");
@@ -145,7 +145,7 @@ var VelovMap = {
           $(".reservation").fadeIn("slow");
           $(".reservation hr").fadeIn("slow");
         });
-      } // SINON N'AFFICHE PAS LE BOUTON "RESERVER"
+      } // Sinon n'affiche pas le bouton "réserver"
       else {
         $(".infos-station *:not(.reserver)").fadeIn("slow");
       }
@@ -153,9 +153,7 @@ var VelovMap = {
   },
 
 
-
-  // METHODE: VALIDATION DE LA RESERVATION
-  // -------------------------------------
+  // Méthode sur la validation de la réservation.
   validerReservation: function (station) {
     // Efface la station en mémoire
     sessionStorage.clear();
@@ -171,7 +169,7 @@ var VelovMap = {
     // Scroll vers footer quand on valide la réservation
     VelovMap.scrollTo($("#footer"));
 
-    //Cache le bouton et le panneau de réservation.
+    // Cache le bouton et le panneau de réservation.
     $(".reserver").fadeOut("slow");
     $(".reservation").fadeOut("slow");
 
@@ -186,8 +184,7 @@ var VelovMap = {
   },
 
 
-
-  // METHODE: EFFACER LA SIGNATURE
+  // Méthode qui efface la signature.
   // -----------------------------
   effacerSignature: function () {
     // Efface la signature
@@ -198,9 +195,7 @@ var VelovMap = {
   },
 
 
-
-  // METHODE: ANNULATION DE LA RESERVATION
-  // -------------------------------------
+  // Méthode qui procéde à l'annulation de la réservation.
   annulerReservation: function () {
     // Efface la reservation enregistrée
     clearInterval(VelovMap.timeInterval);
@@ -216,16 +211,14 @@ var VelovMap = {
   },
 
 
-
-  // METHODE: MISE A JOUR DES INFOS STATION
-  // --------------------------------------
+  // Méthode qui permet la mise à jour des informations des stations
   majInfos: function (station, velo, place) {
-    // SI NOM STATION EGALE NOM STATION RESERVATION
+    // Si nom station est égal à nom stations réservation.
     if (station == sessionStorage.station) {
       // Mise à jour du nombre de vélos et de places dispos
       VelovMap.veloDispo = (velo - 1);
       VelovMap.placeDispo = (place + 1);
-    } // SINON AFFICHE NOMBRE DE VELOS ET PLACES DISPO DE L'API
+    } // Sinon affiche nombre de vélos et places disponibles de l'API.
     else {
       VelovMap.veloDispo = velo;
       VelovMap.placeDispo = place;
@@ -233,9 +226,7 @@ var VelovMap = {
   },
 
 
-
-  // METHODE: COMPTEUR DE LA RESERVATION
-  // -----------------------------------
+  // Méthode pour le compteur de la réservation.
   compteur: function () {
     // t = temps restant jusqu'à la deadline en ms
     var t = Date.parse(sessionStorage.date) - Date.parse(new Date());
@@ -246,7 +237,7 @@ var VelovMap = {
     $(".minutes").text(minutes + " min");
     $(".secondes").text(("0" + secondes + " s").slice(-4));
 
-    // ANNULE LA RESERVATION A LA FIN DU COMPTE A REBOURS
+    // Annulation de la réservation à la fin du compte à rebours.
     if (t <= 0) {
       VelovMap.annulerReservation();
       // Affiche un message "Réservation terminée"
@@ -257,8 +248,7 @@ var VelovMap = {
   },
 
 
-
-  // METHODE: SCROLL VERS UNE TARGET
+  // Méthode pour scroller vers une cible.
   // -------------------------------
   scrollTo: function (target) {
     $("html, body").stop().animate({ scrollTop: target.offset().top }, "slow");

@@ -24,9 +24,9 @@
     	<meta property="og:type" content="website" />
     	<!-- C'est l'URL de référence, de ma page  -->
     	<meta property="og:url" content="https://www.fafachena.com/" />
-    	<!-- C'est l'URL de l'image qui représente votre page dans l'Open Graph  -->
-    	<meta property="og:image" content="https://www.monsite.com/images/exemple_image.jpg"/>
-    	<!-- C'est une description courte de ma page  -->
+    	<!-- C'est l'URL de l'image qui représente votre page dans l'Open Graph -->
+    	<meta property="og:image" content="https://www.fafachena.com/images/diapo-1.png"/>
+    	<!-- C'est une description courte de ma page -->
     	<meta property="og:description" content="Vélo'V vous permet de réserver un vélo sur Lyon de manière intuitive." />
     </head>
     <body>
@@ -141,6 +141,7 @@
                 <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                 <br />
                 <canvas id="canvas" width="250" height="125"></canvas>
+                <p>Désolé, votre navigateur ne supporte pas Canvas.</p>
                 <div class="boutons">
                   <button type="button" class="effacer">Effacer</button>
                   <button type="button" class="valider" disabled>Valider</button>
@@ -173,6 +174,6 @@
         <script type="text/javascript" src="js/canvas.js"></script>
         <script type="text/javascript" src="js/markerclusterer.js"></script>
         <!-- API Google Map -->
-         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=initMap"></script>
+         <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=initMap"></script>
     </body>
 </html>

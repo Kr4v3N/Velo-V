@@ -3,7 +3,7 @@
 // -------------------------- //
 
 //AJAX est l'acronyme d'Asynchronous JavaScript and XML, ce qui, transcrit en français, signifie « JavaScript et XML asynchrones ».
-/* C'est un ensemble de technologies destinées à réaliser de rapides mises à jour du contenu d'une page Web, sans qu'elles nécessitent le moindre rechargement visible par l'utilisateur de la page Web.*/
+/* */
 // Requête Ajax, pour récupérer les données et les exploiter au retour de la requête après transformation en objet
 // Exécute un appel AjAX GET
 // Prend en paramètres l'URL cible et la fonction callback appelé en cas de succès
@@ -16,12 +16,10 @@ function ajaxGet(url,callback) {
     // Création d'une requête HTTP
     var req = new XMLHttpRequest();/* L'objet "XMLHttpRequest()"" envoi une requête HTTP à l'adresse spécifiée, une réponse est alors attendue en retour de la part du serveur ; une fois la réponse obtenue, la requête s'arrête et peut éventuellement être relancée. */
 
-    // La préparation de la requête se fait par le biais de la méthode "open()" qui prend en parametre 3 arguments: "GET", "url" et un booléen qui est par default "true" pour une requête asynchrone.
-    // Requête HTTP GET asynchrone: une requête de mode asynchrone sera exécutée en parallèle et ne bloquera pas l'exécution du script.
-    // Requête HTTP GET asynchrone
-    req.open("GET", url, true);// Le premier argument contient la méthode d'envoi des données ""GET"
+    /* La préparation de la requête se fait par le biais de la méthode "open()" qui prend en parametre 3 arguments: "GET", "url" et un booléen qui est par default "true" pour une requête asynchrone.*/
+    /* Requête HTTP GET asynchrone: une requête de mode asynchrone sera exécutée en parallèle et ne bloquera pas l'exécution du script.*/
+    req.open("GET", url, true);/*Le premier argument contient la méthode d'envoi des données ""GET" */
     // Le deuxième argument est l'"URL" à laquelle je souhaite soumettre la requête.
-
 
     //Gestion de l'évènement indiquant la fin de la requête
     req.addEventListener("load", function () {
@@ -29,7 +27,7 @@ function ajaxGet(url,callback) {
             // Appelle la fonction callback en lui passant la réponse de la requete
             callback(req.responseText);
         } else {
-            // Affichage des inforamtions sur l'échec du traitement de la requete
+            // Affichage des informations sur l'échec du traitement de la requete
             console.error(req.status + " " + req.statusText + " " + url);
         }
     });

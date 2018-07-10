@@ -1,4 +1,8 @@
-var canvas = document.getElementById("canvas");// permet d'accéder à un élément HTML est d'utiliser l'identifiant de l'élément.
+// --------------------------- //
+// --------  CANVAS  -------- //
+// -------------------------- //
+
+var canvas = document.getElementById("canvas");// Permet d'accéder à un élément HTML est d'utiliser l'identifiant de l'élément.
 var ctx= canvas.getContext("2d");// On récupère le context du canvas avec la méthode "getContext"
 
 var SignIn = {
@@ -33,8 +37,8 @@ var SignIn = {
       if (SignIn.paint === true) {
         SignIn.painting(e.offsetX, e.offsetY);/* La propriété "offsetX" renvoie la coordonnée x du pointeur de la souris, par rapport à l'élément-cible, la même chose pour "offsetY" */
         // Active le bouton "valider" et change la couleur
-        $(".valider").prop("disabled", false);/* La méthode "prop" est utilisé pour récupérer la valeur des propriétés.*/
-        $(".valider").css("background-color", "green");/* La méthode "css" est utilisé pour définir une propriété CSS spécifiée.*/
+        $(".valider").prop("disabled", false);
+        $(".valider").css("background-color", "green");
       }
     });
 
@@ -45,11 +49,10 @@ var SignIn = {
   },
 
 
-
-  // Méthode qui gère les événement tactile sur les mobiles
+  // Méthode qui gère les événements tactile.
   touchEvent: function () {
     // Evénement: touché
-    $("#canvas").on("touchstart", function (e) {
+    $("#canvas").touchstart(function (e) {
       var touchX = e.touches[0].pageX - e.touches[0].target.offsetLeft;/* La propriété "pageX" retourne les coordonnées horizontale du pointeur de la souris lors d'un événement de la souris a été déclenchée. */
       var touchY = e.touches[0].pageY - e.touches[0].target.offsetTop;/* La propriété "offsetTop" revient en position haute par rapport à la partie supérieure de l'élément offsetParent */
 
@@ -57,31 +60,29 @@ var SignIn = {
       ctx.beginPath();
       ctx.moveTo(touchX, touchY);
       // Empêche le scrolling de l'écran
-      e.preventDefault();/* // Annule Le comportement par défaut en appelant la méthode "preventDefault" sur l'objet Event. */
+      e.preventDefault();/* Annule Le comportement par défaut en appelant la méthode "preventDefault" sur l'objet Event.*/
     });
 
     // Evénement: Déplacement du touché
-    $("#canvas").on("touchmove", function (e) {
+    $("#canvas").touchmove(function (e) {
       var touchX = e.touches[0].pageX - e.touches[0].target.offsetLeft;
       var touchY = e.touches[0].pageY - e.touches[0].target.offsetTop;
 
       if (SignIn.paint === true) {
         SignIn.painting(touchX, touchY);
         // Active le bouton "valider" et change la couleur
-        $(".valider").prop("disabled", false);
-        $(".valider").css("background-color", "#BF360C");
+        $(".valider").prop("disabled", false);/* La méthode "prop" est utilisée pour définir les valeurs de propriété .*/
+        $(".valider").css("background-color", "#BF360C");/* La méthode "css" est utilisé pour définir une propriété CSS spécifiée.*/
       }
       // Empêche le scrolling de l'écran
       e.preventDefault();
     });
 
     // Evénement: fin du touché
-    $("#canvas").on("touchend", function (e) {
+    $("#canvas").touchend(function (e) {
       SignIn.paint = false;
     });
   },
-
-
 
   // Méthode qui permet de signer.
 

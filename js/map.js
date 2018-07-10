@@ -1,3 +1,7 @@
+// --------------------------- //
+// ------  CARTE VELOV  ----- //
+// -------------------------- //
+
 // Création de l'objet VelovMap
 var VelovMap = {
   veloDispo: 0,

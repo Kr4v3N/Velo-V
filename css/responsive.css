@@ -48,9 +48,9 @@
     }
     /*-----Map-----*/
     #map {
-    width: 100%;
-    height: 450px;
-    margin-left: 10px;
+        width: 100%;
+        height: 450px;
+        margin-left: 10px;
     }
 }
 
@@ -71,12 +71,12 @@
 
     /*-----Header-----*/
     .m-link{
-    font-weight: 400;
-    height: 60px;
+        font-weight: 400;
+        height: 60px;
     }
     .m-nav-toggle{
-    width: 30px;
-    height: 70px;
+        width: 30px;
+        height: 70px;
     }
 
     /*-----Slider-------*/
@@ -99,7 +99,7 @@
         font-size: 0.8em;
     }
     .img-slider img {
-    width: 90%;
-    margin-left: 5px;
+        width: 90%;
+        margin-left: 5px;
     }
 }

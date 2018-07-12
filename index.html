@@ -30,13 +30,12 @@
     	<meta property="og:description" content="Vélo'V vous permet de réserver un vélo sur Lyon de manière intuitive." />
     </head>
     <body>
+
         <!-------------------
                HEADER
         -------------------->
-
-    	<!-- Dans le cadre de L'ARIA ("Accessible Rich Internet Application"), l’attribut "role" définit le type général d’un objet donc facilite l'accessibilité aux personnes handicapées -->
-    	<header role="header">
-    		<nav class="menu" role="navigation">
+    	<header>
+    		<nav class="menu">
     			<div class="inner">
     				<div class="m-left">
     					<h1 class="logo">Vélo'<span class="letter">V </span><a href="#slider-content"><img src="images/Logo_Velov.png" alt="logo"/></a></h1>
@@ -55,7 +54,7 @@
         <!-------------------
                SLIDER
         -------------------->
-        <section id="slider-content" role="diaporama">
+        <section id="slider-content">
     		<h2>Bienvenue sur Vélo'V</h2>
           <!-- Conteneur du Diaporama -->
           	<div id="slider">
@@ -112,7 +111,7 @@
         <!--------------------------------
            CARTE INFORMATION RESERVATION
         --------------------------------->
-       <section id="main" role="main">
+       <section id="main">
             <!-- Map -->
             <div id="map"></div>
             <!-- Information sur la station et réservation -->
@@ -122,13 +121,13 @@
               <div class="infos-station">
                 <h2>Détails de la station</h2>
                 <hr />
-                <i id="icon" class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                 <p class="nom-station">Sélectionnez une station</p>
                 <hr />
-                <i id="icon" class="fas fa-map-signs" aria-hidden="true"></i>
+                <i class="fas fa-map-signs" aria-hidden="true"></i>
                 <p class="adresse-station"></p>
                 <hr />
-                <i id="icon" class="fas fa-bicycle" aria-hidden="true"></i>
+                <i class="fas fa-bicycle" aria-hidden="true"></i>
                 <p class="place-libre"></p>
                 <p class="velo-dispo"></p>
                 <button type="button" class="reserver">Réserver</button>
@@ -150,31 +149,37 @@
               </div>
             </div>
         </section>
+
         <!-------------------
                FOOTER
         -------------------->
-
-    <footer id="footer" role="footer">
-        <h3>Réservation</h3>
-        <span class="footer-text">Aucune réservation en cours</span>
-        <p class="timer">
-          <span class="minutes"></span>
-          <span class="secondes"></span>
-        </p>
-        <button type="button" class="annuler">Annuler</button>
-    </footer>
+        <footer id="footer">
+            <h3>Réservation</h3>
+            <span class="footer-text">Aucune réservation en cours</span>
+            <p class="timer">
+              <span class="minutes"></span>
+              <span class="secondes"></span>
+            </p>
+            <button type="button" class="annuler">Annuler</button>
+            <p><a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"
+                src="http://jigsaw.w3.org/css-validator/images/vcss"
+                alt="CSS Valide !" /></a>
+            </p>
+        </footer>
 
         <!--------------------------
                   SCRIPT
         --------------------------->
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/ajax.js"></script>
-        <script type="text/javascript" src="js/toggle-nav.js"></script>
-        <script type="text/javascript" src="js/slider.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
-        <script type="text/javascript" src="js/canvas.js"></script>
-        <script type="text/javascript" src="js/markerclusterer.js"></script>
+        <script  src="js/ajax.js"></script>
+        <script  src="js/toggle-nav.js"></script>
+        <script  src="js/slider.js"></script>
+        <script  src="js/map.js"></script>
+        <script  src="js/canvas.js"></script>
+        <script  src="js/markerclusterer.js"></script>
         <!-- API Google Map -->
-         <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=initMap"></script>
+         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHSw9r97VQF0-DpY0bXaLP2x7qGzx79OY&callback=initMap"></script>
+
     </body>
+
 </html>

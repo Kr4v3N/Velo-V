@@ -7,38 +7,37 @@ Font family Roboto et Lato importées depuis fonts.google */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
 
-
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;*/
-}
-
 html, body {
     font-family:'Lato', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     font-size: 1.1em;
+    margin: 0;
     overflow-x: hidden;
-    /*box-sizing: border-box;*/
+    padding: 0;
+
+
 }
 /* Mise en page des boutons du site */
 button {
-  font-size: 1em;
-  color: white;
-  background-color: #DD2C00;
-  border-radius: 10px;
+    background-color: #DD2C00;
+    border-radius: 10px;
+    color: white;
+    font-size: 1em;
+
+
 }
 /* Couleur du bouton "valider" */
 .valider {
-  background-color: #DD2C00;
+    background-color: #DD2C00;
+
 }
 /*--------------------------*\
      HEADER NAVIGATION BAR
 \*--------------------------*/
 
 .inner{
-   width:80%;
-   margin: auto;
+    margin: auto;
+    width:80%;
+
 }
 .menu{
     position: fixed;
@@ -47,14 +46,13 @@ button {
     height: 70px;
     z-index: 999;
     line-height: 70px;
-    -webkit-box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.51);
-    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.51);
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.51);
 }
 .logo{
     font-family:'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #fff;
     font-weight: 700;
     font-size: 33px;
     letter-spacing: 1px;
@@ -70,7 +68,7 @@ button {
     float: right;
 }
 .fa-angle-left, .fa-angle-right{
-     color: #212121;
+    color: #212121;
 }
 .m-link{
     text-decoration: none;
@@ -95,8 +93,6 @@ button {
     height: 70px;
     display: none;
     -ms-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     float: right;
     cursor: pointer;
@@ -149,134 +145,121 @@ span.m-toggle-icon::after{top: -12px;}
 
 /* Mise en page du conteneur du slider */
 #slider-content {
-  position: relative;
-  margin-top: 100px;
-  width: 100%;
-  padding: 10px 10px 0 10px;
-  background: #BDBDBD;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+    background: #BDBDBD;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Mise en page du titre du slider */
 #slider-content h2 {
-  font-weight: 500;
-  font-size: 2em;
-  color: #DD2C00;
-  margin: 12px 0;
+    font-weight: 500;
+    font-size: 2em;
+    color: #DD2C00;
+    margin: 12px 0;
 }
 
 /* Mise en page du slider */
 #slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-width: 320px;
-  width: 70%;
-  border: 1px solid grey;
-  background-color: rgb(240,240,240);
-  -webkit-box-shadow: 3px 3px 3px grey;
-  box-shadow: 3px 3px 3px grey;
-  border-radius: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    min-width: 320px;
+    width: 70%;
+    border: 1px solid grey;
+    background-color: rgb(240,240,240);
+    -webkit-box-shadow: 3px 3px 3px grey;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 10px;
 }
 /* Mise en page du contenu du slider */
 .step {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 40px;
-  padding: 50px;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: rgba(255, 171, 145,0.3);
-  border-radius: 16px 16px 16px 16px;
-  -moz-border-radius: 16px 16px 16px 16px;
-  -webkit-border-radius: 16px 16px 16px 16px;
-  border: 0px solid #2e292e;
-  -webkit-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  -moz-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 40px;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(255, 171, 145,0.3);
+    border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    -webkit-border-radius: 16px 16px 16px 16px;
+    border: 0px solid #2e292e;
+    -webkit-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    -moz-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
 }
 
 /* Mise en page du conteneur d'image */
 .img-slider {
-  width: 350px;
-  height: auto;
-  margin: 10px;
+    width: 350px;
+    height: auto;
+    margin: 10px;
 }
 
 /* Mise en page de l'image */
 .img-slider img {
-  width: 100%;
-  border: 1px solid #212121;
-  border-radius: 10px;
+    width: 100%;
+    border: 1px solid #212121;
+    border-radius: 10px;
 }
 
 /* Mise en page du conteneur de texte */
 .text-slider {
-  padding: 10px;
-  margin: 5px;
-  width: 60%;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+    padding: 10px;
+    margin: 5px;
+    width: 60%;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Mise en page du titre du texte */
 .text-slider h3 {
-  color: #fff;
-  border-radius: 5px;
-  background-color: #FF5722;
-  padding: 7px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #FF5722;
+    padding: 7px;
 }
 
 /* Mise en page des boutons du slider */
 .slide-arrow {
-  position: absolute;
-  top: 50%;
-  color: #424242;
-  font-size: 1.8em;
+    position: absolute;
+    top: 50%;
+    color: #424242;
+    font-size: 1.8em;
 }
 
 /* Changement de couleur des boutons au survol */
 .slide-arrow :hover {
-  color: #DD2C00;
+    color: #DD2C00;
 }
 
 /* Position bouton gauche */
 #left {
- left: 5%;
+    left: 5%;
 }
 
 /* Position bouton droit */
 #right {
-  right: 5%;
+    right: 5%;
 }
 
 
@@ -286,151 +269,143 @@ span.m-toggle-icon::after{top: -12px;}
 
 /* Mise en page du main infos et réservation */
 #main {
-  padding: 0 10px 10px 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    padding: 0 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 #map {
-  width: 65%;
-  height: 550px;
-  background-color: #212121;
-  margin-top: 70px;
-  margin-bottom: 120px;
-  border-radius: 2px;
-  border-radius: 16px 16px 16px 16px;
-  -moz-border-radius: 16px 16px 16px 16px;
-  -webkit-border-radius: 16px 16px 16px 16px;
-  border: 0px solid #2e292e;
-  -webkit-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  -moz-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
+    width: 65%;
+    height: 550px;
+    background-color: #212121;
+    margin-top: 70px;
+    margin-bottom: 120px;
+    border-radius: 2px;
+    border-radius: 16px 16px 16px 16px;
+    -moz-border-radius: 16px 16px 16px 16px;
+    -webkit-border-radius: 16px 16px 16px 16px;
+    border: 0 solid #2e292e;
+    -webkit-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    -moz-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
 }
-iframe{
-  position: relative;
-  width: 100%;
-  height: 440px;
-  border: 0,
-}
+
 /* Mise en page du cadre infos et réservation */
 #formulaire {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 70px;
-  min-width: 320px;
-  width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 70px;
+    min-width: 320px;
+    width: 30%;
 }
 /* Mise en page cadre infos */
 .infos-station {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 5px;
-  padding: 15px;
-  padding-top: 0;
-  border-radius: 16px 16px 16px 16px;
-  -moz-border-radius: 16px 16px 16px 16px;
-  -webkit-border-radius: 16px 16px 16px 16px;
- /*border: 0px solid #2e292e;*/
-  -webkit-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  -moz-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  border: 1px solid #2e292e;
-  background-color: #E0E0E0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     margin: 5px;
+     padding: 15px;
+     padding-top: 0;
+     border-radius: 16px 16px 16px 16px;
+     -webkit-border-radius: 16px 16px 16px 16px;
+     -moz-border-radius: 16px 16px 16px 16px;
+     -webkit-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+     -moz-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+     box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+     border: 1px solid #2e292e;
+     background-color: #E0E0E0;
 }
 
 .infos-station p {
-  position: relative;
-  bottom: 17px;
-  margin: 5px;
-  color: blue;
+    position: relative;
+    bottom: 17px;
+    margin: 5px;
+    color: blue;
 }
 
 .infos-station h2 {
-  color: #BF360C;
-  margin-bottom: 40px;
+    color: #BF360C;
+    margin-bottom: 40px;
 }
 .nom-station{
-  color: #BF360C;
+    color: #BF360C;
 }
 
 /* Mise en page des icônes */
 .fa-map-marker-alt, .fa-bicycle, .fa-map-signs, .fa-pencil-alt {
-  position: relative;
-  bottom: 25px;
-  padding: 5px;
-  font-size: 1.2em;
-  background-color: #E0E0E0;
-  color: green;
-}
-#icon {
-  display: none;
+    position: relative;
+    bottom: 25px;
+    padding: 5px;
+    font-size: 1.2em;
+    background-color: #E0E0E0;
+    color: green;
 }
 
 /* ligne décoration des icônes */
 hr {
-  display: none;
-  width: 200px;
-  border: 1px solid #BF360C;
+    width: 200px;
+    border: 1px solid #BF360C;
 }
 
 /* Mise en page cadre reservation avec signature */
 .reservation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 5px;
-  padding: 15px;
-  padding-top: 0;
-  -moz-border-radius: 16px;
-  -webkit-border-radius: 16px;
-  border-radius: 16px;
-  -webkit-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  -moz-box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  box-shadow: 0px 0px 35px 4px rgba(54,54,53,0.83);
-  border: 1px solid #2e292e;
-  background-color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    padding: 15px;
+    padding-top: 0;
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    -moz-box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    box-shadow: 0 0 35px 4px rgba(54,54,53,0.83);
+    border: 1px solid #2e292e;
+    background-color: #E0E0E0;
 }
 
 .reservation h3 {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 /* Mise en page du canvas */
 #canvas {
-  border: 1px solid #2e292e;
-  border-radius: 10px;
-  background-color: #fff;
-  margin-bottom: 50px;
+    border: 1px solid #2e292e;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 50px;
 }
 
 
-/* ------------- FOOTER ------------- */
+/*-------------------*\
+       FOOTER
+\*-------------------*/
 
 /* Mise en page du footer */
 #footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 15px;
-  color: #fff;
-  font-size: 1.2em;
-  background-color: rgba(33, 33, 33,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+    font-size: 1.2em;
+    background-color: rgba(33, 33, 33,0.8);
 }
 #footer p{
-  margin: 5px 0 15px 0;
+    margin: 5px 0 15px 0;
 }
 #footer h3 {
-  margin: 0 0 15px 0;
+    margin: 0 0 15px 0;
 }
 .annuler, .reserver, .reservation {
-  display: none;
+    display: none;
 }
 

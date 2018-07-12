@@ -13,7 +13,7 @@ var VelovMap = {
       var map = new google.maps.Map(document.getElementById("map"), {
       center: new google.maps.LatLng(Lat, Lng),// les coordonnées du "center" sont fournies au travers d'un nouvel objet : "google.maps.LatLng"
       zoom: 13, // Je zoom au niveau 13
-      streetViewControl: false // Je retire le bonhommme jaune de la carte
+      streetViewControl: false, // Je retire le bonhommme jaune de la carte
     });
     var iconBase = "https://fafachena.com/images/"; // J'indique l'emplacement des marqueurs et clusterers.
 
@@ -257,6 +257,7 @@ var VelovMap = {
   scrollTo: function (target) {
     $("html, body").stop().animate({ scrollTop: target.offset().top }, "slow");
   }
+
 };
 
 

@@ -15,7 +15,7 @@ var VelovMap = {
       zoom: 13, // Je zoom au niveau 13
       streetViewControl: false, // Je retire le bonhommme jaune de la carte
     });
-    var iconBase = "https://fafachena.com/images/"; // J'indique l'emplacement des marqueurs et clusterers.
+    var iconBase = "images/"; // J'indique l'emplacement des marqueurs et clusterers.
 
 
     // Récupération des donnés sous format json de L'API.
